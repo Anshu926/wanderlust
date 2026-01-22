@@ -1,7 +1,42 @@
 <% layout("/layouts/boilerplate") %>
-<div class="row mt-5 rounded-5">
-    <div class="alert alert-danger col-6 offset-3" role="alert">
-        <!-- <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg> -->
-        <p class="alert-heading"><%= message  %></p>
+
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6 col-lg-5">
+
+      <div 
+        class="d-flex align-items-center"
+        style="
+          background: rgba(220, 53, 69, 0.12);
+          border-left: 5px solid rgb(220, 53, 69);
+          border-radius: 12px;
+          padding: 14px 18px;
+          box-shadow: 0 3px 12px rgba(0, 0, 0, 0.10);
+          backdrop-filter: blur(4px);
+        "
+      >
+        <i 
+          class="fa-solid fa-circle-exclamation"
+          style="
+            color: rgb(220, 53, 69);
+            font-size: 1.4rem;
+            margin-right: 10px;
+          "
+        ></i>
+
+        <p 
+          style="
+            margin: 0;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: #6a040f;
+            word-break: break-word;
+          "
+        >
+          <%= message %>
+        </p>
+      </div>
+
     </div>
+  </div>
 </div>

@@ -1,15 +1,107 @@
-<%  if(success && success.length){ %>
-<div class="alert alert-success alert-dismissible fade show col-6 offset-3" role="alert">
-    <%= success  %>
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+<% if (success && success.length) { %>
+  <div 
+    class="alert fade show col-10 col-md-6 offset-md-3 mt-3 d-flex align-items-center"
+    style="
+      background: rgba(25,135,84,0.12);
+      border-left: 5px solid rgb(25,135,84);
+      border-radius: 12px;
+      padding: 14px 18px;
+      padding-right: 40px; /* 👈 Extra spacing for X button */
+      box-shadow: 0 3px 12px rgba(0,0,0,0.10);
+      backdrop-filter: blur(4px);
+      position: relative;
+    "
+    role="alert"
+  >
+    <i 
+      class="fa-solid fa-circle-check"
+      style="color: rgb(25,135,84); font-size: 1.4rem; margin-right: 10px;"
+    ></i>
+
+    <p 
+      style="
+        margin: 0;
+        font-size: 0.95rem;
+        font-weight: 500;
+        color: rgb(25,135,84);
+        word-break: break-word;
+        flex-grow: 1;
+      "
+    >
+      <%= success %>
+    </p>
+
+    <button 
+      type="button" 
+      class="btn-close" 
+      data-bs-dismiss="alert"
+      aria-label="Close"
+      style="
+        position: absolute; 
+        right: 12px; 
+        top: 50%; 
+        transform: translateY(-50%);
+      "
+    ></button>
   </div>
-<%  }%>
+<% } %>
 
 
+<% if (error && error.length) { %>
+  <div 
+    class="alert fade show col-10 col-md-6 offset-md-3 mt-3 d-flex align-items-center"
+    style="
+      background: rgba(220,53,69,0.12);
+      border-left: 5px solid rgb(220,53,69);
+      border-radius: 12px;
+      padding: 14px 18px;
+      padding-right: 40px; /* 👈 Extra spacing for X button */
+      box-shadow: 0 3px 12px rgba(0,0,0,0.10);
+      backdrop-filter: blur(4px);
+      position: relative;
+    "
+    role="alert"
+  >
+    <i 
+      class="fa-solid fa-circle-exclamation"
+      style="color: rgb(220,53,69); font-size:1.4rem; margin-right:10px;"
+    ></i>
 
-<%  if(error && error.length){ %>
-  <div class="alert alert-danger alert-dismissible fade show col-6 offset-3" role="alert">
-      <%= error  %>
-      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
-  <%  }%>
+    <p 
+      style="
+        margin: 0;
+        font-size: 0.95rem;
+        font-weight: 500;
+        color: #6a040f;
+        word-break: break-word;
+        flex-grow: 1;
+      "
+    >
+      <%= error %>
+    </p>
+
+    <button 
+      type="button" 
+      class="btn-close" 
+      data-bs-dismiss="alert"
+      aria-label="Close"
+      style="
+        position: absolute; 
+        right: 12px; 
+        top: 50%; 
+        transform: translateY(-50%);
+      "
+    ></button>
+  </div>
+<% } %>
+
+
+<!-- Auto Remove After 5 Seconds -->
+<script>
+  setTimeout(() => {
+    document.querySelectorAll('.alert').forEach(alert => {
+      alert.classList.remove('show');
+      setTimeout(() => alert.remove(), 300);
+    });
+  }, 5000);
+</script>
